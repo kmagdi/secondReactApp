@@ -11,7 +11,7 @@ import {Gallery} from './components/Gallery'
 import {Products} from './components/Products'
 import {ProductDetail} from './components/ProductDetail'
 import {Home} from './components/Home'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar'
 
 
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="container" >
       <LoadingBar color="red" ref={ref}/>
-      <BrowserRouter>
+      <HashRouter>
         <MyNavbar startLoading={()=>ref.current.continuousStart()}/>
         <Routes>
           <Route path='/' element={<Home stopLoading={()=>ref.current.complete()}/>} />
@@ -31,7 +31,7 @@ function App() {
           <Route path='/products' element={<Products />} />
           <Route path='/products/:id' element={<ProductDetail />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     
     </div>
   );
